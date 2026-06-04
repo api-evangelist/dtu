@@ -1,0 +1,55 @@
+{
+  "_comment": "Example response from GET https://api.figshare.com/v2/articles?institution=379&page_size=2 (DTU Data). Real data captured 2026-06-03.",
+  "request": {
+    "method": "GET",
+    "url": "https://api.figshare.com/v2/articles?institution=379&page_size=2"
+  },
+  "response": [
+    {
+      "id": 31812499,
+      "title": "Data for \"Importance of Electronic Entropy for Machine Learning Interatomic Potentials\"",
+      "doi": "10.11583/DTU.31812499.v1",
+      "handle": "",
+      "url": "https://api.figshare.com/v2/articles/31812499",
+      "published_date": "2026-06-02T11:26:34Z",
+      "thumb": "",
+      "defined_type": 3,
+      "defined_type_name": "dataset",
+      "group_id": 18047,
+      "url_private_api": "https://api.figshare.com/v2/account/articles/31812499",
+      "url_public_api": "https://api.figshare.com/v2/articles/31812499",
+      "url_private_html": "https://figshare.com/account/articles/31812499",
+      "url_public_html": "https://data.dtu.dk/articles/dataset/Data_for_Importance_of_Electronic_Entropy_for_Machine_Learning_Interatomic_Potentials_/31812499",
+      "timeline": {
+        "posted": "2026-06-02T11:26:34"
+      },
+      "resource_title": "",
+      "resource_doi": "https://github.com/dtu-energy/cPaiNN#genetic-algorithm-ga",
+      "created_date": "2026-06-02T11:26:34Z",
+      "modified_date": "2026-06-02T11:26:34Z"
+    },
+    {
+      "id": 32531226,
+      "title": "Scripts accompanying \"Tangential induced velocity in the vortex cylinder model for non-planar rotors\"",
+      "doi": "10.11583/DTU.32531226.v1",
+      "handle": "",
+      "url": "https://api.figshare.com/v2/articles/32531226",
+      "published_date": "2026-06-02T09:07:44Z",
+      "thumb": "",
+      "defined_type": 9,
+      "defined_type_name": "software",
+      "group_id": 18080,
+      "url_private_api": "https://api.figshare.com/v2/account/articles/32531226",
+      "url_public_api": "https://api.figshare.com/v2/articles/32531226",
+      "url_private_html": "https://figshare.com/account/articles/32531226",
+      "url_public_html": "https://data.dtu.dk/articles/software/Scripts_accompanying_Tangential_induced_velocity_in_the_vortex_cylinder_model_for_non-planar_rotors_/32531226",
+      "timeline": {
+        "posted": "2026-06-02T09:07:44"
+      },
+      "resource_title": "10.11581/d3a30d81-998e-4fb2-8007-3e659e666dee",
+      "resource_doi": "10.11581/d3a30d81-998e-4fb2-8007-3e659e666dee",
+      "created_date": "2026-06-02T09:07:44Z",
+      "modified_date": "2026-06-02T09:07:44Z"
+    }
+  ]
+}

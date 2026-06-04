@@ -1,0 +1,71 @@
+vocabulary:
+  name: DTU Data API Vocabulary
+  description: >-
+    Controlled vocabulary of the core terms used by the DTU Data research
+    repository API, which is built on the Figshare platform and exposes the
+    Figshare REST API v2 scoped to DTU via institution id 379. Terms reflect
+    objects and fields observed in the real Figshare OpenAPI specification and
+    live DTU Data responses.
+  version: "1.0.0"
+  terms:
+    - term: Article
+      definition: >-
+        A published research output in DTU Data (dataset, media, figure,
+        poster, paper, etc.). The primary record type returned by the Figshare
+        articles endpoints.
+      tags: [object, core, figshare]
+    - term: DOI
+      definition: >-
+        Digital Object Identifier minted for a DTU Data record, using the DTU
+        prefix 10.11583 (e.g. 10.11583/DTU.31812499.v1).
+      tags: [identifier, persistent, dtu]
+    - term: Institution Id
+      definition: >-
+        Numeric Figshare identifier that scopes queries to an institution; DTU
+        is institution id 379 (e.g. /v2/articles?institution=379).
+      tags: [identifier, scope, dtu]
+    - term: defined_type_name
+      definition: >-
+        Human-readable classification of an article, such as "dataset",
+        "figure", "media", or "paper".
+      tags: [field, classification]
+    - term: Author
+      definition: >-
+        A contributor associated with a DTU Data article, including full name
+        and optional ORCID identifier.
+      tags: [object, person]
+    - term: ORCID
+      definition: >-
+        Open Researcher and Contributor ID assigned to an author, exposed as the
+        orcid_id field on the Author object.
+      tags: [identifier, person, orcid]
+    - term: Category
+      definition: >-
+        A subject classification term applied to an article, drawn from the
+        Figshare taxonomy (e.g. "Computational chemistry").
+      tags: [object, classification, taxonomy]
+    - term: License
+      definition: >-
+        The reuse license governing a DTU Data record, expressed as a value,
+        name, and URL (e.g. CC BY 4.0).
+      tags: [object, rights, licensing]
+    - term: PublicFile
+      definition: >-
+        A downloadable file attached to a public article, including name, size,
+        MD5 checksums, MIME type, and download URL.
+      tags: [object, file, download]
+    - term: Timeline
+      definition: >-
+        Object capturing key date events for a record (posted, published,
+        first online, revision, submission).
+      tags: [object, dates, provenance]
+    - term: Version
+      definition: >-
+        Immutable, citable version of an article; new edits create new versions
+        accessible via /articles/{article_id}/versions.
+      tags: [field, versioning, provenance]
+    - term: Embargo
+      definition: >-
+        Time-limited restriction on access to a record or its files, described
+        by embargo date, type, and reason fields.
+      tags: [access, restriction]

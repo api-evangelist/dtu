@@ -1,0 +1,76 @@
+rules:
+
+  # --- Observed patterns in the DTU Data (Figshare API v2) specification ---
+
+  dtu-info-contact:
+    description: API info object should declare a contact (Figshare Support).
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  dtu-info-license:
+    description: API info object should declare a license (Apache 2.0 for Figshare).
+    severity: warn
+    given: $.info
+    then:
+      field: license
+      function: truthy
+
+  dtu-server-figshare-base:
+    description: Server URL must point at the Figshare API v2 base.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://api\\.figshare\\.com/v2$"
+
+  dtu-get-only-public-read:
+    description: >-
+      DTU Data public catalog operations are read-only; only GET methods are
+      expected on documented public paths.
+    severity: warn
+    given: $.paths[*]
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          not:
+            anyOf:
+              - required: [post]
+              - required: [put]
+              - required: [patch]
+              - required: [delete]
+
+  dtu-operation-success-response:
+    description: Every operation should document a 200 success response.
+    severity: warn
+    given: $.paths[*][get]
+    then:
+      field: responses.200
+      function: truthy
+
+  dtu-article-id-param-integer:
+    description: The article_id path parameter should be an integer (Figshare ids are integers).
+    severity: warn
+    given: $.paths[*].*.parameters[?(@.name=='article_id')].schema
+    then:
+      field: type
+      function: pattern
+      functionOptions:
+        match: "^integer$"
+
+  dtu-doi-prefix:
+    description: >-
+      DTU-minted DOIs use the 10.11583 prefix; example DOIs in schemas should be
+      strings.
+    severity: info
+    given: $.components.schemas.Article.properties.doi
+    then:
+      field: type
+      function: pattern
+      functionOptions:
+        match: "^string$"

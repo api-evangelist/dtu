@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dtu/main/json-structure/dtu-file-structure.json",
+  "name": "DTUDataFile",
+  "description": "JSON Structure description of a public file attached to a DTU Data article.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int64",
+      "description": "File identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "File name."
+    },
+    "size": {
+      "type": "int64",
+      "description": "File size in bytes."
+    },
+    "is_link_only": {
+      "type": "boolean",
+      "description": "True if hosted externally."
+    },
+    "download_url": {
+      "type": "uri",
+      "description": "Download URL."
+    },
+    "supplied_md5": {
+      "type": "string",
+      "description": "Supplied MD5 checksum."
+    },
+    "computed_md5": {
+      "type": "string",
+      "description": "Computed MD5 checksum."
+    },
+    "mimetype": {
+      "type": "string",
+      "description": "MIME type of the file."
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "size",
+    "download_url"
+  ]
+}

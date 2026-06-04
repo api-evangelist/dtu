@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dtu/main/json-schema/dtu-author-schema.json",
+  "title": "DTU Data Author",
+  "description": "JSON Schema for an author associated with a DTU Data article record.",
+  "required": [
+    "first_name",
+    "full_name",
+    "id",
+    "is_active",
+    "last_name",
+    "orcid_id",
+    "url_name"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Author id",
+      "examples": [
+        97657
+      ]
+    },
+    "full_name": {
+      "type": "string",
+      "description": "Author full name",
+      "examples": [
+        "John Doe"
+      ]
+    },
+    "first_name": {
+      "type": "string",
+      "description": "Author first name",
+      "examples": [
+        "John"
+      ]
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Author last name",
+      "examples": [
+        "Doe"
+      ]
+    },
+    "is_active": {
+      "type": "boolean",
+      "description": "True if author has published items",
+      "examples": [
+        false
+      ]
+    },
+    "url_name": {
+      "type": "string",
+      "description": "Author url name",
+      "examples": [
+        "John_Doe"
+      ]
+    },
+    "orcid_id": {
+      "type": "string",
+      "description": "Author Orcid",
+      "examples": [
+        "1234-5678-9123-1234"
+      ]
+    }
+  },
+  "x-tag": "authors"
+}

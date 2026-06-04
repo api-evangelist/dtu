@@ -45,6 +45,20 @@ apis:
         url: https://docs.figshare.com/
       - type: Portal
         url: https://data.dtu.dk/
+      - type: OpenAPI
+        url: openapi/dtu-data.yaml
+      - type: JSONSchema
+        url: json-schema/dtu-article-schema.json
+      - type: JSONStructure
+        url: json-structure/dtu-article-structure.json
+      - type: x-examples
+        url: examples/dtu-get-article-example.json
+      - type: x-spectral
+        url: rules/dtu-rules.yml
+      - type: x-vocabulary
+        url: vocabulary/dtu-vocabulary.yml
+      - type: x-json-ld
+        url: json-ld/dtu-context.jsonld
   - aid: dtu:orbit
     name: DTU Orbit Research Database (Pure)
     description: >-

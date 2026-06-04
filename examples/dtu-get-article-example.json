@@ -1,0 +1,264 @@
+{
+  "_comment": "Example response from GET https://api.figshare.com/v2/articles/{article_id} (DTU Data). Real data captured 2026-06-03; files array truncated to first 3 for brevity.",
+  "request": {
+    "method": "GET",
+    "url": "https://api.figshare.com/v2/articles/31812499"
+  },
+  "response": {
+    "files": [
+      {
+        "id": 65152560,
+        "name": "README.md",
+        "size": 3170,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/65152560",
+        "supplied_md5": "d248ff83223d47533dc77bfca224d6a4",
+        "computed_md5": "d248ff83223d47533dc77bfca224d6a4",
+        "mimetype": "text/plain"
+      },
+      {
+        "id": 63129541,
+        "name": "validation_NaFeGaPSSiO4_adjusted_charge_magmopm.xyz",
+        "size": 23293942,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/63129541",
+        "supplied_md5": "68fbe0e5f64944bae58d878553f93838",
+        "computed_md5": "68fbe0e5f64944bae58d878553f93838",
+        "mimetype": "text/plain"
+      },
+      {
+        "id": 63129544,
+        "name": "train_NaFeGaPSSiO4_adjusted_charge_magmopm.xyz",
+        "size": 209920430,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/63129544",
+        "supplied_md5": "39cbd569b372f98171112f65b21bf390",
+        "computed_md5": "39cbd569b372f98171112f65b21bf390",
+        "mimetype": "text/plain"
+      }
+    ],
+    "folder_structure": {
+      "63129541": "Training_dataset",
+      "63129544": "Training_dataset",
+      "63129559": "Reference_dataset",
+      "63129562": "Reference_dataset",
+      "63129565": "Reference_dataset",
+      "63129568": "Reference_dataset",
+      "63129571": "Reference_dataset",
+      "63129574": "Reference_dataset",
+      "63129577": "Reference_dataset",
+      "63129580": "Reference_dataset",
+      "63129583": "Reference_dataset",
+      "63129586": "Electronic_entropy_reference_dataset",
+      "63129589": "Electronic_entropy_reference_dataset",
+      "63129592": "Electronic_entropy_embedded_MLIP/cPaiNN",
+      "63129595": "Electronic_entropy_embedded_MLIP/CHGNet",
+      "63129598": "Electronic_entropy_embedded_MLIP/MACE",
+      "63129601": "Electronic_entropy_embedded_MLIP/cPaiNN",
+      "63129604": "Electronic_entropy_embedded_MLIP/MACE",
+      "65152560": ""
+    },
+    "authors": [
+      {
+        "id": 6219881,
+        "full_name": "Steen Lysgaard",
+        "first_name": "Steen",
+        "last_name": "Lysgaard",
+        "is_active": true,
+        "url_name": "Steen_Lysgaard",
+        "orcid_id": "0000-0002-2032-8949"
+      },
+      {
+        "id": 6217688,
+        "full_name": "Juan Maria Garc\u00eda Lastra",
+        "first_name": "Juan Maria",
+        "last_name": "Garc\u00eda Lastra",
+        "is_active": true,
+        "url_name": "Juan_Maria_Garc_a_Lastra",
+        "orcid_id": ""
+      },
+      {
+        "id": 12036695,
+        "full_name": "Martin Pedersen",
+        "first_name": "Martin",
+        "last_name": "Pedersen",
+        "is_active": false,
+        "url_name": "Martin_Pedersen",
+        "orcid_id": ""
+      }
+    ],
+    "custom_fields": [
+      {
+        "name": "ORCID for corresponding depositor",
+        "value": [
+          "https://orcid.org/ 0000-0002-2032-8949"
+        ],
+        "settings": {
+          "placeholder": "Add ORCID - e.g. https://orcid.org/0000-0001-9264-7669",
+          "is_multiple": false
+        },
+        "field_type": "url",
+        "order": null,
+        "is_mandatory": false
+      }
+    ],
+    "figshare_url": "https://data.dtu.dk/articles/dataset/Data_for_Importance_of_Electronic_Entropy_for_Machine_Learning_Interatomic_Potentials_/31812499",
+    "download_disabled": false,
+    "description": "<p dir=\"ltr\">The dataset is provided in XYZ format and is organized into three folders: \"Training_dataset\", \"Reference_dataset\", and \"Electronic_entropy_reference_dataset\". The training dataset is used to train the electronic-entropy-embedded Machine Learning Interatomic Potentials (MLIPs). The reference dataset is used to benchmark the MLIPs before and after electronic entropy embedding and is based on structures obtained from MACE-driven Genetic Algorithm (GA) simulations. The electronic entropy reference dataset is used to quantify the contribution of electronic entropy in both Density Functional Theory (DFT) and MLIP structural optimizations and consists of the experimentally verified Na<sub>2/3</sub>FePO<sub>4</sub> phase with different arrangements of Fe<sup>3+</sup> and Fe<sup>2+</sup>.</p><p><br></p><p dir=\"ltr\">The training dataset is derived from the <a href=\"https://doi.org/10.11583/DTU.27202446.V5\">polyanionic sodium cathode materials dataset</a> [1] which includes only structures containing Fe as the transition-metal species. Structures for which the distinction between Fe<sup>2+</sup> and Fe<sup>3+</sup>, based on magnetic moments, is ambiguous are excluded. In this dataset, Fe<sup>3+</sup> sites are represented using a Ga-based embedding, as described in the main text.</p><p><br></p><p dir=\"ltr\">The reference dataset contains both pre-optimized and DFT-optimized structures selected from the three lowest- and three highest-energy configurations of the olivine NaFePO<sub>4</sub> phase, as identified by the MLIP-driven GA. 7 additional low energy structures at 66% Na concentration are also included, along with the orthorhombic. These structures are used to evaluate the MLIPs' ability to reproduce the correct energy ordering and structural stability.</p><p><br></p><p dir=\"ltr\">The electronic entropy reference dataset consists of both pre-optimized and DFT-optimized structures with multiple configurations of the experimentally verified Na<sub>2/3</sub>FePO<sub>4</sub> structure with different Fe<sup>3+</sup> /Fe<sup>2</sup><sup>+</sup> arrangements. This dataset is used to analyze the distribution of energies associated with charge ordering and to assess how well MLIPs capture the electronic entropy landscape compared with DFT.</p><p><br></p><p dir=\"ltr\">To extract the structural compositions and physical properties, the ase.io.read function from ASE version 3.23.0 is used. An example of how to extract data and plot the physical properties is provided in <a href=\"https://github.com/dtu-energy/cPaiNN/blob/main/read_data.py\" rel=\"noreferrer\" target=\"_blank\">https://github.com/dtu-energy/cPaiNN/blob/main/read_data.py</a>. [2]</p><p><br></p><p dir=\"ltr\">The MLIPs before electronic entropy embedding can be found at <a href=\"https://doi.org/10.11583/DTU.27411681.V4\" rel=\"noreferrer\" target=\"_blank\">https://doi.org/10.11583/DTU.27411681</a> [3] and the MLIP after electronic entropy embedding is positioned in the folder \"Electronic_entropy_embedded_MLIP\". An example of how to load the structures as well as examples to run the GA is presented in <a href=\"https://dtu-energy.github.io/ase-ga/\" rel=\"noreferrer\" target=\"_blank\">https://dtu-energy.github.io/ase-ga/</a> [4] and https://github.com/dtu-energy/cPaiNN#genetic-algorithm-ga [5].</p>",
+    "funding": "Data-driven quest for TWh scalable Na-ion battery",
+    "funding_list": [
+      {
+        "id": 23267167,
+        "title": "Data-driven quest for TWh scalable Na-ion battery",
+        "grant_code": "N/A",
+        "funder_name": "Danish Agency for Science and Higher Education",
+        "is_user_defined": 0,
+        "url": "https://app.dimensions.ai/details/grant/grant.13062905"
+      },
+      {
+        "id": 26452665,
+        "title": "A high-performance computing infrastructure for data-driven research on sustainable energy materials",
+        "grant_code": "NNF22OC0078009",
+        "funder_name": "Novo Nordisk Foundation",
+        "is_user_defined": 0,
+        "url": "https://app.dimensions.ai/details/grant/grant.13910425"
+      }
+    ],
+    "version": 1,
+    "status": "public",
+    "size": 318081426,
+    "created_date": "2026-06-02T11:26:34Z",
+    "modified_date": "2026-06-02T11:26:34Z",
+    "is_public": true,
+    "is_confidential": false,
+    "is_metadata_record": false,
+    "confidential_reason": "",
+    "metadata_reason": "",
+    "license": {
+      "value": 1,
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "tags": [
+      "Machine Learning Interatomic Potentials (MLIPs)",
+      "Genetic Algorithm Optimisation (GA)",
+      "electronic entropy",
+      "battery cathode materials",
+      "Sodium Ion Batteries Na-ion batteries"
+    ],
+    "keywords": [
+      "Machine Learning Interatomic Potentials (MLIPs)",
+      "Genetic Algorithm Optimisation (GA)",
+      "electronic entropy",
+      "battery cathode materials",
+      "Sodium Ion Batteries Na-ion batteries"
+    ],
+    "categories": [
+      {
+        "id": 25258,
+        "title": "Computational chemistry",
+        "parent_id": 25255,
+        "path": "/25066/25255/25258",
+        "source_id": "340701",
+        "taxonomy_id": 100
+      },
+      {
+        "id": 28846,
+        "title": "Modelling and simulation",
+        "parent_id": 28825,
+        "path": "/28798/28825/28846",
+        "source_id": "460207",
+        "taxonomy_id": 100
+      },
+      {
+        "id": 29173,
+        "title": "Machine learning not elsewhere classified",
+        "parent_id": 29152,
+        "path": "/28798/29152/29173",
+        "source_id": "461199",
+        "taxonomy_id": 100
+      }
+    ],
+    "references": [
+      "https://doi.org/10.11583/DTU.27202446",
+      "https://github.com/dtu-energy/cPaiNN/blob/main/read_data.py",
+      "https://doi.org/10.11583/DTU.27411681",
+      "https://dtu-energy.github.io/ase-ga/",
+      "https://github.com/dtu-energy/cPaiNN#genetic-algorithm-ga"
+    ],
+    "has_linked_file": false,
+    "citation": "Lysgaard, Steen; Garc\u00eda Lastra, Juan Maria; Pedersen, Martin (2026). Data for \"Importance of Electronic Entropy for Machine Learning Interatomic Potentials\". Technical University of Denmark. Dataset. https://doi.org/10.11583/DTU.31812499.v1",
+    "related_materials": [
+      {
+        "id": 276926520,
+        "identifier": "10.11583/DTU.27202446",
+        "title": "",
+        "relation": "IsDerivedFrom",
+        "identifier_type": "DOI",
+        "is_linkout": false,
+        "link": "https://doi.org/10.11583/DTU.27202446"
+      },
+      {
+        "id": 276926526,
+        "identifier": "https://github.com/dtu-energy/cPaiNN/blob/main/read_data.py",
+        "title": "",
+        "relation": "References",
+        "identifier_type": "URL",
+        "is_linkout": false,
+        "link": "https://github.com/dtu-energy/cPaiNN/blob/main/read_data.py"
+      },
+      {
+        "id": 276926529,
+        "identifier": "10.11583/DTU.27411681",
+        "title": "",
+        "relation": "References",
+        "identifier_type": "DOI",
+        "is_linkout": false,
+        "link": "https://doi.org/10.11583/DTU.27411681"
+      },
+      {
+        "id": 276926535,
+        "identifier": "https://dtu-energy.github.io/ase-ga/",
+        "title": "",
+        "relation": "References",
+        "identifier_type": "URL",
+        "is_linkout": false,
+        "link": "https://dtu-energy.github.io/ase-ga/"
+      },
+      {
+        "id": 278912973,
+        "identifier": "https://github.com/dtu-energy/cPaiNN#genetic-algorithm-ga",
+        "title": "",
+        "relation": "References",
+        "identifier_type": "URL",
+        "is_linkout": true,
+        "link": "https://github.com/dtu-energy/cPaiNN#genetic-algorithm-ga"
+      }
+    ],
+    "is_embargoed": false,
+    "embargo_date": null,
+    "embargo_type": null,
+    "embargo_title": "",
+    "embargo_reason": "",
+    "embargo_options": [],
+    "id": 31812499,
+    "title": "Data for \"Importance of Electronic Entropy for Machine Learning Interatomic Potentials\"",
+    "doi": "10.11583/DTU.31812499.v1",
+    "handle": "",
+    "url": "https://api.figshare.com/v2/articles/31812499",
+    "published_date": "2026-06-02T11:26:34Z",
+    "thumb": "",
+    "defined_type": 3,
+    "defined_type_name": "dataset",
+    "group_id": 18047,
+    "url_private_api": "https://api.figshare.com/v2/account/articles/31812499",
+    "url_public_api": "https://api.figshare.com/v2/articles/31812499",
+    "url_private_html": "https://figshare.com/account/articles/31812499",
+    "url_public_html": "https://data.dtu.dk/articles/dataset/Data_for_Importance_of_Electronic_Entropy_for_Machine_Learning_Interatomic_Potentials_/31812499",
+    "timeline": {
+      "posted": "2026-06-02T11:26:34"
+    },
+    "resource_title": null,
+    "resource_doi": null
+  }
+}

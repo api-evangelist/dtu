@@ -1,0 +1,92 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "dtu": "https://data.dtu.dk/vocab#",
+    "figshare": "https://api.figshare.com/v2/vocab#",
+
+    "CollegeOrUniversity": "schema:CollegeOrUniversity",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+
+    "institution": {
+      "@id": "dtu:Institution",
+      "@type": "schema:CollegeOrUniversity"
+    },
+    "institutionId": "dtu:institutionId",
+
+    "Article": {
+      "@id": "schema:Dataset",
+      "@context": {
+        "id": "schema:identifier",
+        "title": "schema:name",
+        "description": "schema:description",
+        "doi": {
+          "@id": "schema:identifier",
+          "@type": "schema:PropertyValue"
+        },
+        "url": { "@id": "schema:url", "@type": "@id" },
+        "url_public_html": { "@id": "schema:mainEntityOfPage", "@type": "@id" },
+        "url_public_api": { "@id": "schema:url", "@type": "@id" },
+        "published_date": { "@id": "schema:datePublished", "@type": "schema:Date" },
+        "created_date": { "@id": "schema:dateCreated", "@type": "schema:Date" },
+        "modified_date": { "@id": "schema:dateModified", "@type": "schema:Date" },
+        "defined_type_name": "schema:additionalType",
+        "version": "schema:version",
+        "size": "schema:contentSize",
+        "citation": "schema:citation",
+        "license": { "@id": "schema:license", "@type": "@id" },
+        "tags": "schema:keywords",
+        "categories": "schema:about",
+        "authors": "schema:creator",
+        "files": "schema:distribution"
+      }
+    },
+
+    "Author": {
+      "@id": "schema:Person",
+      "@context": {
+        "id": "schema:identifier",
+        "full_name": "schema:name",
+        "first_name": "schema:givenName",
+        "last_name": "schema:familyName",
+        "orcid_id": { "@id": "schema:identifier", "@type": "@id" }
+      }
+    },
+
+    "Category": {
+      "@id": "schema:DefinedTerm",
+      "@context": {
+        "id": "schema:identifier",
+        "title": "schema:name",
+        "path": "schema:termCode"
+      }
+    },
+
+    "License": {
+      "@id": "schema:CreativeWork",
+      "@context": {
+        "name": "schema:name",
+        "url": { "@id": "schema:url", "@type": "@id" }
+      }
+    },
+
+    "PublicFile": {
+      "@id": "schema:DataDownload",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "size": "schema:contentSize",
+        "download_url": { "@id": "schema:contentUrl", "@type": "@id" },
+        "mimetype": "schema:encodingFormat"
+      }
+    }
+  },
+
+  "@type": "CollegeOrUniversity",
+  "name": "Technical University of Denmark",
+  "url": "https://www.dtu.dk/english",
+  "description": "Leading engineering and science university in Kongens Lyngby, Denmark. Its DTU Data research repository (institution id 379) is built on the Figshare platform and exposes the Figshare REST API v2.",
+  "institutionId": "379"
+}

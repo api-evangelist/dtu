@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dtu/main/json-structure/dtu-article-structure.json",
+  "name": "DTUDataArticle",
+  "description": "JSON Structure description of a complete public DTU Data (Figshare) article record.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int64",
+      "description": "Unique Figshare identifier for the article."
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the article/dataset."
+    },
+    "doi": {
+      "type": "string",
+      "description": "Digital Object Identifier (DTU prefix 10.11583)."
+    },
+    "handle": {
+      "type": "string",
+      "description": "Persistent handle, may be empty."
+    },
+    "url": {
+      "type": "uri",
+      "description": "API endpoint for the article."
+    },
+    "url_public_html": {
+      "type": "uri",
+      "description": "Public landing page on data.dtu.dk."
+    },
+    "url_public_api": {
+      "type": "uri",
+      "description": "Public API endpoint for the article."
+    },
+    "published_date": {
+      "type": "datetime",
+      "description": "Publication timestamp (ISO 8601)."
+    },
+    "created_date": {
+      "type": "datetime",
+      "description": "Record creation timestamp."
+    },
+    "modified_date": {
+      "type": "datetime",
+      "description": "Last modification timestamp."
+    },
+    "defined_type": {
+      "type": "int32",
+      "description": "Numeric item type code."
+    },
+    "defined_type_name": {
+      "type": "string",
+      "description": "Human-readable item type, e.g. 'dataset'."
+    },
+    "group_id": {
+      "type": "int64",
+      "description": "Figshare group/institution group identifier."
+    },
+    "size": {
+      "type": "int64",
+      "description": "Total size of attached files in bytes."
+    },
+    "version": {
+      "type": "int32",
+      "description": "Version number of the record."
+    },
+    "is_public": {
+      "type": "boolean",
+      "description": "Whether the record is publicly available."
+    },
+    "is_embargoed": {
+      "type": "boolean",
+      "description": "Whether the record is under embargo."
+    },
+    "license": {
+      "type": {
+        "$ref": "#/$defs/License"
+      },
+      "description": "License governing reuse."
+    },
+    "citation": {
+      "type": "string",
+      "description": "Formatted citation string."
+    },
+    "description": {
+      "type": "string",
+      "description": "HTML description / abstract."
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": {
+          "$ref": "#/$defs/Author"
+        }
+      },
+      "description": "List of authors."
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": {
+          "$ref": "#/$defs/Category"
+        }
+      },
+      "description": "Subject categories."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-text keywords/tags."
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": {
+          "$ref": "#/$defs/File"
+        }
+      },
+      "description": "Attached files (up to 10 listed)."
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "doi",
+    "url",
+    "defined_type_name"
+  ],
+  "$defs": {
+    "License": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "uri"
+        }
+      }
+    },
+    "Author": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "int64"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "url_name": {
+          "type": "string"
+        },
+        "orcid_id": {
+          "type": "string"
+        }
+      }
+    },
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": "int64"
+        },
+        "path": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "taxonomy_id": {
+          "type": "int64"
+        }
+      }
+    },
+    "File": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "int64"
+        },
+        "is_link_only": {
+          "type": "boolean"
+        },
+        "download_url": {
+          "type": "uri"
+        },
+        "supplied_md5": {
+          "type": "string"
+        },
+        "computed_md5": {
+          "type": "string"
+        },
+        "mimetype": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,967 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dtu/main/json-schema/dtu-article-schema.json",
+  "title": "DTU Data Article (Complete)",
+  "description": "JSON Schema for a complete public Figshare article record as returned by GET /articles/{article_id} for DTU Data. Derived faithfully from the Figshare API v2 OpenAPI specification.",
+  "required": [
+    "authors",
+    "custom_fields",
+    "download_disabled",
+    "embargo_options",
+    "figshare_url",
+    "files",
+    "folder_structure"
+  ],
+  "properties": {
+    "figshare_url": {
+      "type": "string",
+      "description": "Article public url",
+      "format": "url",
+      "examples": [
+        "http://figshare.com/articles/media/article_name/2000005"
+      ]
+    },
+    "download_disabled": {
+      "type": "boolean",
+      "description": "If true, downloading of files for this article is disabled",
+      "examples": [
+        false
+      ]
+    },
+    "files": {
+      "type": "array",
+      "description": "List of up to 10 article files.",
+      "items": {
+        "$ref": "#/$defs/PublicFile"
+      }
+    },
+    "folder_structure": {
+      "type": "object",
+      "properties": {},
+      "description": "Mapping of file ids to folder paths, if folders are used",
+      "examples": [
+        {
+          "3000002": "Test Folder"
+        }
+      ]
+    },
+    "authors": {
+      "type": "array",
+      "description": "List of article authors",
+      "items": {
+        "$ref": "#/$defs/Author"
+      }
+    },
+    "custom_fields": {
+      "type": "array",
+      "description": "List of custom fields values",
+      "items": {
+        "$ref": "#/$defs/CustomArticleField"
+      }
+    },
+    "embargo_options": {
+      "type": "array",
+      "description": "List of embargo options",
+      "items": {
+        "$ref": "#/$defs/GroupEmbargoOptions"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/$defs/ProjectArticle"
+    }
+  ],
+  "x-tag": "articles",
+  "$defs": {
+    "GroupEmbargoOptions": {
+      "required": [
+        "id",
+        "ip_name",
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Embargo option id",
+          "examples": [
+            364
+          ]
+        },
+        "type": {
+          "type": "string",
+          "description": "Embargo permission type",
+          "examples": [
+            "ip_range"
+          ],
+          "enum": [
+            "logged_in",
+            "ip_range",
+            "administrator"
+          ]
+        },
+        "ip_name": {
+          "type": "string",
+          "description": "IP range name; value appears if type is ip_range",
+          "examples": [
+            "Figshare IP range"
+          ]
+        }
+      },
+      "x-tag": "institutions"
+    },
+    "CustomArticleField": {
+      "required": [
+        "field_type",
+        "is_mandatory",
+        "name",
+        "order",
+        "settings",
+        "value"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Custom  metadata name",
+          "examples": [
+            "key"
+          ]
+        },
+        "value": {
+          "type": "object",
+          "description": "Custom metadata value (can be either a string or an array of strings)",
+          "examples": [
+            "value"
+          ]
+        },
+        "field_type": {
+          "type": "string",
+          "description": "Custom field type",
+          "examples": [
+            "textarea"
+          ],
+          "enum": [
+            "text",
+            "textarea",
+            "dropdown",
+            "url",
+            "email",
+            "date",
+            "dropdown_large_list"
+          ]
+        },
+        "settings": {
+          "type": "object",
+          "properties": {},
+          "description": "Settings for the custom field",
+          "examples": [
+            {
+              "validations": {
+                "min_length": 1,
+                "max_length": 1000
+              },
+              "placeholder": "Enter your custom field here"
+            }
+          ]
+        },
+        "order": {
+          "type": "integer",
+          "description": "Order of the custom field",
+          "examples": [
+            1
+          ]
+        },
+        "is_mandatory": {
+          "type": "boolean",
+          "description": "Whether the field is mandatory or not",
+          "examples": [
+            false
+          ]
+        }
+      },
+      "x-tag": "articles"
+    },
+    "TimelineUpdate": {
+      "type": "object",
+      "properties": {
+        "firstOnline": {
+          "type": "string",
+          "description": "Online posted date",
+          "examples": [
+            "2015-12-31"
+          ]
+        },
+        "publisherPublication": {
+          "type": "string",
+          "description": "Publish date",
+          "examples": [
+            "2015-12-31"
+          ]
+        },
+        "publisherAcceptance": {
+          "type": "string",
+          "description": "Date when the item was accepted for publication",
+          "examples": [
+            "2015-12-31"
+          ]
+        }
+      },
+      "x-tag": "timeline_update"
+    },
+    "ProjectArticle": {
+      "required": [
+        "categories",
+        "citation",
+        "confidential_reason",
+        "created_date",
+        "description",
+        "embargo_reason",
+        "embargo_title",
+        "funding",
+        "funding_list",
+        "has_linked_file",
+        "is_confidential",
+        "is_embargoed",
+        "is_metadata_record",
+        "is_public",
+        "keywords",
+        "license",
+        "metadata_reason",
+        "references",
+        "size",
+        "status",
+        "tags",
+        "version"
+      ],
+      "properties": {
+        "citation": {
+          "type": "string",
+          "description": "Article citation",
+          "examples": [
+            "lilliput, figshare admin (2017): first project item. figshare.\n \n Retrieved: 14 01, May 22, 2017 (GMT)"
+          ]
+        },
+        "confidential_reason": {
+          "type": "string",
+          "description": "Confidentiality reason",
+          "examples": [
+            "none"
+          ]
+        },
+        "is_confidential": {
+          "type": "boolean",
+          "description": "Article Confidentiality",
+          "examples": [
+            true
+          ]
+        },
+        "size": {
+          "type": "integer",
+          "description": "Article size",
+          "examples": [
+            69939
+          ]
+        },
+        "funding": {
+          "type": "string",
+          "description": "Article funding",
+          "examples": [
+            "none"
+          ]
+        },
+        "funding_list": {
+          "type": "array",
+          "description": "Full Article funding information",
+          "items": {
+            "$ref": "#/$defs/FundingInformation"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "List of article tags. Keywords can be used instead",
+          "examples": [
+            [
+              "t1",
+              "t2",
+              "t3"
+            ]
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "keywords": {
+          "type": "array",
+          "description": "List of article keywords. Tags can be used instead",
+          "examples": [
+            [
+              "t1",
+              "t2",
+              "t3"
+            ]
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "version": {
+          "type": "integer",
+          "description": "Article version",
+          "examples": [
+            1
+          ]
+        },
+        "is_metadata_record": {
+          "type": "boolean",
+          "description": "True if article has no files",
+          "examples": [
+            false
+          ]
+        },
+        "metadata_reason": {
+          "type": "string",
+          "description": "Article metadata reason",
+          "examples": [
+            "hosted somewhere else"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "description": "Article status",
+          "examples": [
+            "public"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "Article description",
+          "examples": [
+            "article description"
+          ]
+        },
+        "is_embargoed": {
+          "type": "boolean",
+          "description": "True if article is embargoed",
+          "examples": [
+            true
+          ]
+        },
+        "is_public": {
+          "type": "boolean",
+          "description": "True if article is published",
+          "examples": [
+            true
+          ]
+        },
+        "created_date": {
+          "type": "string",
+          "description": "Date when article was created",
+          "examples": [
+            "2017-05-18T11:49:03Z"
+          ]
+        },
+        "has_linked_file": {
+          "type": "boolean",
+          "description": "True if any files are linked to the article",
+          "examples": [
+            true
+          ]
+        },
+        "categories": {
+          "type": "array",
+          "description": "List of categories selected for the article",
+          "items": {
+            "$ref": "#/$defs/Category"
+          }
+        },
+        "license": {
+          "$ref": "#/$defs/License"
+        },
+        "embargo_title": {
+          "type": "string",
+          "description": "Title for embargo",
+          "examples": [
+            "File(s) under embargo"
+          ]
+        },
+        "embargo_reason": {
+          "type": "string",
+          "description": "Reason for embargo",
+          "examples": [
+            "not complete"
+          ]
+        },
+        "references": {
+          "type": "array",
+          "description": "List of references",
+          "examples": [
+            [
+              "http://figshare.com",
+              "http://figshare.com/api"
+            ]
+          ],
+          "items": {
+            "type": "string",
+            "format": "url"
+          }
+        },
+        "related_materials": {
+          "type": "array",
+          "description": "List of related materials; supersedes references and resource DOI/title.",
+          "examples": [
+            [
+              {
+                "id": 10432,
+                "identifier": "10.6084/m9.figshare.1407024",
+                "identifier_type": "DOI",
+                "relation": "IsSupplementTo",
+                "title": "Figshare for institutions brochure",
+                "is_linkout": false
+              }
+            ]
+          ],
+          "items": {
+            "$ref": "#/$defs/RelatedMaterial"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/$defs/Article"
+        }
+      ],
+      "x-tag": "articles"
+    },
+    "Author": {
+      "required": [
+        "first_name",
+        "full_name",
+        "id",
+        "is_active",
+        "last_name",
+        "orcid_id",
+        "url_name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Author id",
+          "examples": [
+            97657
+          ]
+        },
+        "full_name": {
+          "type": "string",
+          "description": "Author full name",
+          "examples": [
+            "John Doe"
+          ]
+        },
+        "first_name": {
+          "type": "string",
+          "description": "Author first name",
+          "examples": [
+            "John"
+          ]
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Author last name",
+          "examples": [
+            "Doe"
+          ]
+        },
+        "is_active": {
+          "type": "boolean",
+          "description": "True if author has published items",
+          "examples": [
+            false
+          ]
+        },
+        "url_name": {
+          "type": "string",
+          "description": "Author url name",
+          "examples": [
+            "John_Doe"
+          ]
+        },
+        "orcid_id": {
+          "type": "string",
+          "description": "Author Orcid",
+          "examples": [
+            "1234-5678-9123-1234"
+          ]
+        }
+      },
+      "x-tag": "authors"
+    },
+    "Article": {
+      "required": [
+        "created_date",
+        "defined_type",
+        "defined_type_name",
+        "doi",
+        "handle",
+        "id",
+        "resource_doi",
+        "resource_title",
+        "thumb",
+        "timeline",
+        "title",
+        "url",
+        "url_private_api",
+        "url_private_html",
+        "url_public_api",
+        "url_public_html"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier for article",
+          "examples": [
+            1434614
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of article",
+          "examples": [
+            "Test article title"
+          ]
+        },
+        "doi": {
+          "type": "string",
+          "description": "DOI",
+          "examples": [
+            "10.6084/m9.figshare.1434614"
+          ]
+        },
+        "handle": {
+          "type": "string",
+          "description": "Handle",
+          "examples": [
+            "111184/figshare.1234"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "description": "Api endpoint for article",
+          "format": "url",
+          "examples": [
+            "http://api.figshare.com/articles/1434614"
+          ]
+        },
+        "url_public_html": {
+          "type": "string",
+          "description": "Public site endpoint for article",
+          "format": "url",
+          "examples": [
+            "https://figshare.com/articles/media/Test_article_title/1434614"
+          ]
+        },
+        "url_public_api": {
+          "type": "string",
+          "description": "Public Api endpoint for article",
+          "format": "url",
+          "examples": [
+            "https://api.figshare.com/articles/1434614"
+          ]
+        },
+        "url_private_html": {
+          "type": "string",
+          "description": "Private site endpoint for article",
+          "format": "url",
+          "examples": [
+            "https://figshare.com/account/articles/1434614"
+          ]
+        },
+        "url_private_api": {
+          "type": "string",
+          "description": "Private Api endpoint for article",
+          "format": "url",
+          "examples": [
+            "https://api.figshare.com/account/articles/1434614"
+          ]
+        },
+        "timeline": {
+          "$ref": "#/$defs/Timeline"
+        },
+        "thumb": {
+          "type": "string",
+          "description": "Thumbnail image",
+          "format": "url",
+          "examples": [
+            "https://ndownloader.figshare.com/files/123456789/preview/12345678/thumb.png"
+          ]
+        },
+        "defined_type": {
+          "type": "integer",
+          "description": "Type of article identifier",
+          "examples": [
+            3
+          ]
+        },
+        "defined_type_name": {
+          "type": "string",
+          "description": "Name of the article type identifier",
+          "examples": [
+            "media"
+          ]
+        },
+        "resource_doi": {
+          "type": "string",
+          "description": "Deprecated by related materials. Not applicable to regular users. In a publisher case, this is the publisher article DOI.",
+          "default": ""
+        },
+        "resource_title": {
+          "type": "string",
+          "description": "Deprecated by related materials. Not applicable to regular users. In a publisher case, this is the publisher article title.",
+          "default": ""
+        },
+        "created_date": {
+          "type": "string",
+          "description": "Date when article was created",
+          "examples": [
+            "2017-05-18T11:49:03Z"
+          ]
+        }
+      },
+      "x-tag": "articles"
+    },
+    "RelatedMaterial": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "The ID of the related material; can be used to add existing materials of the same account to items.",
+          "examples": [
+            10432
+          ]
+        },
+        "identifier": {
+          "type": "string",
+          "description": "The related material identifier (e.g., DOI, Handle, ISBN). Mandatory if creating a new material.",
+          "examples": [
+            "10.6084/m9.figshare.1407024"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "The related material title",
+          "examples": [
+            "Rooter: A Methodology for the Typical Unification of Access Points and Redundancy"
+          ]
+        },
+        "relation": {
+          "type": "string",
+          "description": "The relation between the item and the related material; defaults to 'References'. Mandatory if creating a new material.",
+          "examples": [
+            "IsSupplementTo"
+          ],
+          "default": "References",
+          "enum": [
+            "IsCitedBy",
+            "Cites",
+            "IsSupplementTo",
+            "IsSupplementedBy",
+            "IsContinuedBy",
+            "Continues",
+            "Describes",
+            "IsDescribedBy",
+            "HasMetadata",
+            "IsMetadataFor",
+            "HasVersion",
+            "IsVersionOf",
+            "IsNewVersionOf",
+            "IsPreviousVersionOf",
+            "IsPartOf",
+            "HasPart",
+            "IsPublishedIn",
+            "IsReferencedBy",
+            "References",
+            "IsDocumentedBy",
+            "Documents",
+            "IsCompiledBy",
+            "Compiles",
+            "IsVariantFormOf",
+            "IsOriginalFormOf",
+            "IsIdenticalTo",
+            "IsReviewedBy",
+            "Reviews",
+            "IsDerivedFrom",
+            "IsSourceOf",
+            "IsRequiredBy",
+            "Requires",
+            "IsObsoletedBy",
+            "Obsoletes"
+          ]
+        },
+        "identifier_type": {
+          "type": "string",
+          "description": "The type of the identifier of the related material; defaults to 'URL'. Mandatory if creating a new material.",
+          "examples": [
+            "DOI"
+          ],
+          "default": "URL",
+          "enum": [
+            "ARK",
+            "arXiv",
+            "bibcode",
+            "DOI",
+            "EAN13",
+            "EISSN",
+            "Handle",
+            "IGSN",
+            "ISBN",
+            "ISSN",
+            "ISTC",
+            "LISSN",
+            "LSID",
+            "PMID",
+            "PURL",
+            "UPC",
+            "URL",
+            "URN",
+            "w3id"
+          ]
+        },
+        "is_linkout": {
+          "type": "boolean",
+          "description": "Flag for highlighting this related material in the call-out box",
+          "examples": [
+            true
+          ]
+        },
+        "link": {
+          "type": "string",
+          "description": "The full hyperlink for the identifier. Automatically generated by Figshare.",
+          "readOnly": true,
+          "examples": [
+            "https://doi.org/10.6084/m9.figshare.1407024"
+          ]
+        }
+      }
+    },
+    "PublicFile": {
+      "required": [
+        "computed_md5",
+        "download_url",
+        "id",
+        "is_link_only",
+        "name",
+        "size",
+        "supplied_md5"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "File id",
+          "examples": [
+            3000002
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "File name",
+          "examples": [
+            "test.xls"
+          ]
+        },
+        "size": {
+          "type": "integer",
+          "description": "File size",
+          "examples": [
+            14848
+          ]
+        },
+        "is_link_only": {
+          "type": "boolean",
+          "description": "True if file is hosted somewhere else",
+          "examples": [
+            false
+          ]
+        },
+        "download_url": {
+          "type": "string",
+          "description": "Url for file download",
+          "format": "url",
+          "examples": [
+            "https://ndownloader.figshare.com/files/3000002"
+          ]
+        },
+        "supplied_md5": {
+          "type": "string",
+          "description": "File supplied md5",
+          "examples": [
+            "043a51806d646e88cafbf19e7b82846f"
+          ]
+        },
+        "computed_md5": {
+          "type": "string",
+          "description": "File computed md5",
+          "examples": [
+            "043a51806d646e88cafbf19e7b82846f"
+          ]
+        },
+        "mimetype": {
+          "type": "string",
+          "description": "MIME Type of the file, it defaults to an empty string",
+          "examples": [
+            "application/pdf"
+          ]
+        }
+      },
+      "x-tag": "common"
+    },
+    "FundingInformation": {
+      "required": [
+        "funder_name",
+        "grant_code",
+        "id",
+        "is_user_defined",
+        "title",
+        "url"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Funding id",
+          "examples": [
+            1
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "The funding name",
+          "examples": [
+            "Scholarly funding"
+          ]
+        },
+        "grant_code": {
+          "type": "string",
+          "description": "The grant code"
+        },
+        "funder_name": {
+          "type": "string",
+          "description": "Funder's name"
+        },
+        "is_user_defined": {
+          "type": "integer",
+          "description": "Return 1 whether the grant has been introduced manually, 0 otherwise"
+        },
+        "url": {
+          "type": "string",
+          "description": "The grant url",
+          "format": "url",
+          "examples": [
+            "https://app.dimensions.ai/details/grant/1"
+          ]
+        }
+      },
+      "x-tag": "funding"
+    },
+    "Timeline": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/TimelineUpdate"
+        }
+      ],
+      "x-tag": "timeline"
+    },
+    "Category": {
+      "required": [
+        "id",
+        "parent_id",
+        "path",
+        "source_id",
+        "taxonomy_id",
+        "title"
+      ],
+      "type": "object",
+      "properties": {
+        "parent_id": {
+          "type": "integer",
+          "description": "Parent category",
+          "examples": [
+            1
+          ]
+        },
+        "id": {
+          "type": "integer",
+          "description": "Category id",
+          "examples": [
+            11
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "Category title",
+          "examples": [
+            "Anatomy"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "description": "Path to all ancestor ids",
+          "examples": [
+            "/450/1024/6532"
+          ]
+        },
+        "source_id": {
+          "type": "string",
+          "description": "ID in original standard taxonomy",
+          "examples": [
+            "300204"
+          ]
+        },
+        "taxonomy_id": {
+          "type": "integer",
+          "description": "Internal id of taxonomy the category is part of",
+          "examples": [
+            4
+          ]
+        }
+      },
+      "x-tag": "common"
+    },
+    "License": {
+      "required": [
+        "name",
+        "url",
+        "value"
+      ],
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "description": "License value",
+          "examples": [
+            1
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "License name",
+          "examples": [
+            "CC BY"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "description": "License url",
+          "format": "url",
+          "examples": [
+            "http://creativecommons.org/licenses/by/4.0/"
+          ]
+        }
+      },
+      "x-tag": "institutions"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+---
+name: Technical University of Denmark
+description: Technical University of Denmark public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/dtu/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      DTU has no consolidated public developer portal. The one clearly live,
+      documented, programmatic API is DTU Data via the Figshare REST API
+      (institution=379), which returned live JSON (HTTP 200). DTU Orbit's public
+      Pure portal loads fine, but its OAI/web-service endpoints redirect to an
+      error page (HTTP 500) and are not openly self-service, so it is cataloged
+      as a portal rather than a usable API. The dtudk GitHub org, LinkedIn
+      school page, official site, and federated auth host all resolve. No
+      endpoints were fabricated; the Orbit machine interface is honestly marked
+      as gated/erroring.
+    endpoints:
+      - url: https://api.figshare.com/v2/articles?institution=379
+        status: 200
+        note: Live JSON of DTU Data datasets via Figshare REST API (DTU institution id 379).
+      - url: https://data.dtu.dk/
+        status: 202
+        note: DTU Data repository portal (Figshare-hosted) reachable.
+      - url: https://orbit.dtu.dk/
+        status: 200
+        note: DTU Orbit (Pure) public research database portal loads.
+      - url: https://orbit.dtu.dk/ws/oai?verb=Identify
+        status: 500
+        note: Pure OAI-PMH endpoint redirects to an error page; not openly available.
+      - url: https://github.com/dtudk
+        status: 200
+        note: Official DTU GitHub org hosting affiliated open-source software.
+      - url: https://www.dtu.dk/english
+        status: 200
+        note: Official institutional website (English).
+      - url: https://auth.dtu.dk/
+        status: 200
+        note: DTU federated SSO / OCES authentication host.
+      - url: https://developer.dtu.dk/
+        status: 0
+        note: No dedicated developer portal subdomain (did not resolve).

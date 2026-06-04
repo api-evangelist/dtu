@@ -1,0 +1,83 @@
+---
+aid: dtu
+name: Technical University of Denmark
+description: >-
+  The Technical University of Denmark (DTU) is a leading engineering and science
+  university in Kongens Lyngby, Denmark, ranked #109 in the QS World University
+  Rankings 2025. DTU's public developer/API footprint is research- and
+  metadata-oriented rather than a unified developer program: its DTU Data
+  research repository is built on the Figshare platform and exposes the open
+  Figshare REST API (institution id 379), and the DTU Orbit research database
+  runs on Elsevier Pure. DTU also maintains a public GitHub organization
+  (dtudk) hosting affiliated open-source software. Identity is handled through
+  DTU's federated SSO (Shibboleth/OCES). There is no consolidated public
+  developer portal documenting institution-wide APIs.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/dtu/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research Data
+  - Open Data
+  - Denmark
+  - Europe
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: dtu:data
+    name: DTU Data (Figshare API)
+    description: >-
+      DTU Data is DTU's institutional research data repository hosted on the
+      Figshare platform. Its public datasets, articles, and metadata are
+      accessible through the standard Figshare REST API v2, scoped to DTU via
+      institution id 379 (e.g. /v2/articles?institution=379). Returns JSON over
+      HTTPS; read access to public records requires no authentication.
+    humanURL: https://data.dtu.dk/
+    baseURL: https://api.figshare.com/v2
+    tags: [ Research Data, Open Data, Repository, Figshare, Datasets ]
+    properties:
+      - type: Documentation
+        url: https://docs.figshare.com/
+      - type: Portal
+        url: https://data.dtu.dk/
+  - aid: dtu:orbit
+    name: DTU Orbit Research Database (Pure)
+    description: >-
+      DTU Orbit is DTU's research information database (publications, projects,
+      activities, researcher and department profiles), built on Elsevier Pure.
+      The public web portal is openly browsable and searchable. Pure exposes a
+      web service / OAI-PMH harvesting interface, but on the public DTU Orbit
+      host those machine endpoints currently return errors and are not openly
+      documented or self-service.
+    humanURL: https://orbit.dtu.dk/
+    tags: [ Research, Publications, Pure, Repository, OAI-PMH ]
+    properties:
+      - type: Documentation
+        url: https://www.bibliotek.dtu.dk/en/about-and-contact/open-science/open-science-dtu-orbit
+      - type: Portal
+        url: https://orbit.dtu.dk/
+common:
+  - type: Website
+    url: https://www.dtu.dk/english
+  - type: GitHub
+    url: https://github.com/dtudk
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/technical-university-of-denmark/
+  - type: Authentication
+    url: https://auth.dtu.dk/
+  - type: Plans
+    url: plans/dtu-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dtu-rate-limits.yml
+  - type: FinOps
+    url: finops/dtu-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

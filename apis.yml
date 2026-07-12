@@ -76,6 +76,8 @@ apis:
       - type: Portal
         url: https://orbit.dtu.dk/
 common:
+  - type: DomainSecurity
+    url: security/dtu-domain-security.yml
   - type: Website
     url: https://www.dtu.dk/english
   - type: GitHub
@@ -92,6 +94,8 @@ common:
     url: finops/dtu-finops.yml
   - type: Review
     url: review.yml
+  - type: Blog
+    url: https://www.dtu.dk/english/news/all-news
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

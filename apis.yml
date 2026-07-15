@@ -76,6 +76,8 @@ apis:
       - type: Portal
         url: https://orbit.dtu.dk/
 common:
+  - type: AgenticAccess
+    url: agentic-access/dtu-agentic-access.yml
   - type: DomainSecurity
     url: security/dtu-domain-security.yml
   - type: Website

@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DTU Data (Figshare API v2) articles institutions API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "institutions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Public Institution Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.figshare.com/v2/institutions/:institution_string_id/articles/filter-by",
+            "params": [
+              {
+                "name": "institution_string_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of articles belonging to the institution"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

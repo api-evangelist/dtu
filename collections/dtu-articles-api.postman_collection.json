@@ -1,0 +1,1746 @@
+{
+  "item": [
+    {
+      "id": "715e82bf-5852-4118-bfcb-3af3b30ebe4b",
+      "name": "articles",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fceb2ffb-8106-4ecb-95d4-45d1839248c1",
+          "name": "Public Articles",
+          "request": {
+            "name": "Public Articles",
+            "description": {
+              "content": "Returns a list of public articles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "articles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number. Used for pagination with page_size"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "The number of results included on a page. Used for pagination with page"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results included on a page. Used for pagination with query"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Where to start the listing (the offset of the first result). Used for pagination with limit"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "published_date",
+                  "description": "The field by which to order. Default varies by endpoint/resource."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_direction",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "institution",
+                  "value": "<integer>",
+                  "description": "only return articles from this institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "published_since",
+                  "value": "<string>",
+                  "description": "Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD or date-time(ISO 8601) YYYY-MM-DDTHH:mm:ssZ"
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_since",
+                  "value": "<string>",
+                  "description": "Filter by article modified date. Will only return articles modified after the date. date(ISO 8601) YYYY-MM-DD or date-time(ISO 8601) YYYY-MM-DDTHH:mm:ssZ"
+                },
+                {
+                  "disabled": false,
+                  "key": "group",
+                  "value": "<integer>",
+                  "description": "only return articles from this group"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource_doi",
+                  "value": "<string>",
+                  "description": "Deprecated by related materials. Only return articles with this resource_doi"
+                },
+                {
+                  "disabled": false,
+                  "key": "item_type",
+                  "value": "<integer>",
+                  "description": "Only return articles with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 5 - Poster, 6 - Journal contribution, 7 - Presentation, 8 - Thesis, 9 - Software, 11 - Online resource, 12 - Preprint, 13 - Book, 14 - Conference contribution, 15 - Chapter, 16 - Peer review, 17 - Educational resource, 18 - Report, 19 - Standard, 20 - Composition, 21 - Funding, 22 - Physical object, 23 - Data management plan, 24 - Workflow, 25 - Monograph, 26 - Performance, 27 - Event, 28 - Service, 29 - Model"
+                },
+                {
+                  "disabled": false,
+                  "key": "doi",
+                  "value": "<string>",
+                  "description": "only return articles with this doi"
+                },
+                {
+                  "disabled": false,
+                  "key": "handle",
+                  "value": "<string>",
+                  "description": "only return articles with this handle"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                "key": "X-Cursor",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b16d4f1f-8901-48c0-8434-8e54e87e56f8",
+              "name": "OK. An array of articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "published_date"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "institution",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "published_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resource_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "handle",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities.",
+                  "key": "X-Cursor",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_date\": \"2017-05-18T11:49:03Z\",\n    \"defined_type\": 3,\n    \"defined_type_name\": \"media\",\n    \"doi\": \"10.6084/m9.figshare.1434614\",\n    \"handle\": \"111184/figshare.1234\",\n    \"id\": 1434614,\n    \"resource_doi\": \"\",\n    \"resource_title\": \"\",\n    \"thumb\": \"https://ndownloader.figshare.com/files/123456789/preview/12345678/thumb.png\",\n    \"timeline\": {\n      \"firstOnline\": \"2015-12-31\",\n      \"publisherPublication\": \"2015-12-31\",\n      \"publisherAcceptance\": \"2015-12-31\"\n    },\n    \"title\": \"Test article title\",\n    \"url\": \"http://api.figshare.com/articles/1434614\",\n    \"url_private_api\": \"https://api.figshare.com/account/articles/1434614\",\n    \"url_private_html\": \"https://figshare.com/account/articles/1434614\",\n    \"url_public_api\": \"https://api.figshare.com/articles/1434614\",\n    \"url_public_html\": \"https://figshare.com/articles/media/Test_article_title/1434614\"\n  },\n  {\n    \"created_date\": \"2017-05-18T11:49:03Z\",\n    \"defined_type\": 3,\n    \"defined_type_name\": \"media\",\n    \"doi\": \"10.6084/m9.figshare.1434614\",\n    \"handle\": \"111184/figshare.1234\",\n    \"id\": 1434614,\n    \"resource_doi\": \"\",\n    \"resource_title\": \"\",\n    \"thumb\": \"https://ndownloader.figshare.com/files/123456789/preview/12345678/thumb.png\",\n    \"timeline\": {\n      \"firstOnline\": \"2015-12-31\",\n      \"publisherPublication\": \"2015-12-31\",\n      \"publisherAcceptance\": \"2015-12-31\"\n    },\n    \"title\": \"Test article title\",\n    \"url\": \"http://api.figshare.com/articles/1434614\",\n    \"url_private_api\": \"https://api.figshare.com/account/articles/1434614\",\n    \"url_private_html\": \"https://figshare.com/account/articles/1434614\",\n    \"url_public_api\": \"https://api.figshare.com/articles/1434614\",\n    \"url_public_html\": \"https://figshare.com/articles/media/Test_article_title/1434614\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11eaa1b6-1006-4813-b422-1d4828e12e2e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "published_date"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "institution",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "published_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resource_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "handle",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0dc986d2-8ecd-46a0-b902-13c585596e8a",
+              "name": "Unprocessable Entity. Syntax is correct but one of the parameters isn't correctly processed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "published_date"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "institution",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "published_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resource_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "handle",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0090555f-2b98-4014-a197-bf3440acf57a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "published_date"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "institution",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "published_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resource_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "handle",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Unique hash used for bypassing the item retrieval limit of 9,000 entities. When using this parameter, please note that the offset parameter will not be available, but the limit parameter will still work as expected.",
+                    "key": "X-Cursor",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4da81b6-2fcb-4e38-942f-a6bd0c4a8d8c",
+          "name": "View article details",
+          "request": {
+            "name": "View article details",
+            "description": {
+              "content": "View an article",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "articles",
+                ":article_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "article_id",
+                  "description": "(Required) Article Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e293f476-4a11-4baf-a511-334ee792a1f1",
+              "name": "OK. Article representation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"authors\": [\n    {\n      \"first_name\": \"John\",\n      \"full_name\": \"John Doe\",\n      \"id\": 97657,\n      \"is_active\": false,\n      \"last_name\": \"Doe\",\n      \"orcid_id\": \"1234-5678-9123-1234\",\n      \"url_name\": \"John_Doe\"\n    },\n    {\n      \"first_name\": \"John\",\n      \"full_name\": \"John Doe\",\n      \"id\": 97657,\n      \"is_active\": false,\n      \"last_name\": \"Doe\",\n      \"orcid_id\": \"1234-5678-9123-1234\",\n      \"url_name\": \"John_Doe\"\n    }\n  ],\n  \"categories\": [\n    {\n      \"id\": 11,\n      \"parent_id\": 1,\n      \"path\": \"/450/1024/6532\",\n      \"source_id\": \"300204\",\n      \"taxonomy_id\": 4,\n      \"title\": \"Anatomy\"\n    },\n    {\n      \"id\": 11,\n      \"parent_id\": 1,\n      \"path\": \"/450/1024/6532\",\n      \"source_id\": \"300204\",\n      \"taxonomy_id\": 4,\n      \"title\": \"Anatomy\"\n    }\n  ],\n  \"citation\": \"lilliput, figshare admin (2017): first project item. figshare.\\n \\n Retrieved: 14 01, May 22, 2017 (GMT)\",\n  \"confidential_reason\": \"none\",\n  \"created_date\": \"2017-05-18T11:49:03Z\",\n  \"custom_fields\": [\n    {\n      \"field_type\": \"textarea\",\n      \"is_mandatory\": false,\n      \"name\": \"key\",\n      \"order\": 1,\n      \"settings\": {\n        \"validations\": {\n          \"min_length\": 1,\n          \"max_length\": 1000\n        },\n        \"placeholder\": \"Enter your custom field here\"\n      },\n      \"value\": {}\n    },\n    {\n      \"field_type\": \"textarea\",\n      \"is_mandatory\": false,\n      \"name\": \"key\",\n      \"order\": 1,\n      \"settings\": {\n        \"validations\": {\n          \"min_length\": 1,\n          \"max_length\": 1000\n        },\n        \"placeholder\": \"Enter your custom field here\"\n      },\n      \"value\": {}\n    }\n  ],\n  \"defined_type\": 3,\n  \"defined_type_name\": \"media\",\n  \"description\": \"article description\",\n  \"doi\": \"10.6084/m9.figshare.1434614\",\n  \"download_disabled\": false,\n  \"embargo_options\": [\n    {\n      \"id\": 364,\n      \"ip_name\": \"Figshare IP range\",\n      \"type\": \"ip_range\"\n    },\n    {\n      \"id\": 364,\n      \"ip_name\": \"Figshare IP range\",\n      \"type\": \"ip_range\"\n    }\n  ],\n  \"embargo_reason\": \"not complete\",\n  \"embargo_title\": \"File(s) under embargo\",\n  \"figshare_url\": \"http://figshare.com/articles/media/article_name/2000005\",\n  \"files\": [\n    {\n      \"computed_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n      \"download_url\": \"https://ndownloader.figshare.com/files/3000002\",\n      \"id\": 3000002,\n      \"is_link_only\": false,\n      \"name\": \"test.xls\",\n      \"size\": 14848,\n      \"supplied_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n      \"mimetype\": \"application/pdf\"\n    },\n    {\n      \"computed_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n      \"download_url\": \"https://ndownloader.figshare.com/files/3000002\",\n      \"id\": 3000002,\n      \"is_link_only\": false,\n      \"name\": \"test.xls\",\n      \"size\": 14848,\n      \"supplied_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n      \"mimetype\": \"application/pdf\"\n    }\n  ],\n  \"folder_structure\": {\n    \"3000002\": \"Test Folder\"\n  },\n  \"funding\": \"none\",\n  \"funding_list\": [\n    {\n      \"funder_name\": \"string\",\n      \"grant_code\": \"string\",\n      \"id\": 1,\n      \"is_user_defined\": 5351,\n      \"title\": \"Scholarly funding\",\n      \"url\": \"https://app.dimensions.ai/details/grant/1\"\n    },\n    {\n      \"funder_name\": \"string\",\n      \"grant_code\": \"string\",\n      \"id\": 1,\n      \"is_user_defined\": 3403,\n      \"title\": \"Scholarly funding\",\n      \"url\": \"https://app.dimensions.ai/details/grant/1\"\n    }\n  ],\n  \"handle\": \"111184/figshare.1234\",\n  \"has_linked_file\": true,\n  \"id\": 1434614,\n  \"is_confidential\": true,\n  \"is_embargoed\": true,\n  \"is_metadata_record\": false,\n  \"is_public\": true,\n  \"keywords\": [\n    \"t1\",\n    \"t2\",\n    \"t3\"\n  ],\n  \"license\": {\n    \"name\": \"CC BY\",\n    \"url\": \"http://creativecommons.org/licenses/by/4.0/\",\n    \"value\": 1\n  },\n  \"metadata_reason\": \"hosted somewhere else\",\n  \"references\": [\n    \"http://figshare.com\",\n    \"http://figshare.com/api\"\n  ],\n  \"resource_doi\": \"\",\n  \"resource_title\": \"\",\n  \"size\": 69939,\n  \"status\": \"public\",\n  \"tags\": [\n    \"t1\",\n    \"t2\",\n    \"t3\"\n  ],\n  \"thumb\": \"https://ndownloader.figshare.com/files/123456789/preview/12345678/thumb.png\",\n  \"timeline\": {\n    \"firstOnline\": \"2015-12-31\",\n    \"publisherPublication\": \"2015-12-31\",\n    \"publisherAcceptance\": \"2015-12-31\"\n  },\n  \"title\": \"Test article title\",\n  \"url\": \"http://api.figshare.com/articles/1434614\",\n  \"url_private_api\": \"https://api.figshare.com/account/articles/1434614\",\n  \"url_private_html\": \"https://figshare.com/account/articles/1434614\",\n  \"url_public_api\": \"https://api.figshare.com/articles/1434614\",\n  \"url_public_html\": \"https://figshare.com/articles/media/Test_article_title/1434614\",\n  \"version\": 1,\n  \"related_materials\": [\n    {\n      \"id\": 10432,\n      \"identifier\": \"10.6084/m9.figshare.1407024\",\n      \"identifier_type\": \"DOI\",\n      \"relation\": \"IsSupplementTo\",\n      \"title\": \"Figshare for institutions brochure\",\n      \"is_linkout\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82b8eb06-861b-4ab1-987b-c53a65137b40",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e441d9f0-a46b-4478-92a8-08fb0e571f49",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e47514e2-04be-4c0a-89a5-39b8c4118b8c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "443ca213-2a58-4550-852e-b390d92e5c1a",
+          "name": "List article files",
+          "request": {
+            "name": "List article files",
+            "description": {
+              "content": "Files list for article",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "articles",
+                ":article_id",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number. Used for pagination with page_size"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "The number of results included on a page. Used for pagination with page"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results included on a page. Used for pagination with query"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Where to start the listing (the offset of the first result). Used for pagination with limit"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "article_id",
+                  "description": "(Required) Article Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c0106022-7698-43ea-98f4-b7ce8d8cadcd",
+              "name": "OK. List of article files",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"computed_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n    \"download_url\": \"https://ndownloader.figshare.com/files/3000002\",\n    \"id\": 3000002,\n    \"is_link_only\": false,\n    \"name\": \"test.xls\",\n    \"size\": 14848,\n    \"supplied_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n    \"mimetype\": \"application/pdf\"\n  },\n  {\n    \"computed_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n    \"download_url\": \"https://ndownloader.figshare.com/files/3000002\",\n    \"id\": 3000002,\n    \"is_link_only\": false,\n    \"name\": \"test.xls\",\n    \"size\": 14848,\n    \"supplied_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n    \"mimetype\": \"application/pdf\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "241275b7-4335-4d82-a652-4f1f3cb9e322",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "77cbb75a-7fec-4888-a588-860036bb86c5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e16d74b4-e76e-4f92-9394-7f744c119a79",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91a8684a-0ca1-4156-8de0-0a4bc77e5e3e",
+          "name": "Article file details",
+          "request": {
+            "name": "Article file details",
+            "description": {
+              "content": "File by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "articles",
+                ":article_id",
+                "files",
+                ":file_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "article_id",
+                  "description": "(Required) Article Unique identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "file_id",
+                  "description": "(Required) File Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8a49694-9dd8-485f-b48e-a0ead8955beb",
+              "name": "OK. File representation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "files",
+                    ":file_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "file_id",
+                      "description": "(Required) File Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"computed_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n  \"download_url\": \"https://ndownloader.figshare.com/files/3000002\",\n  \"id\": 3000002,\n  \"is_link_only\": false,\n  \"name\": \"test.xls\",\n  \"size\": 14848,\n  \"supplied_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n  \"mimetype\": \"application/pdf\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b0da8dc-a43c-48de-9cc1-88e1854be006",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "files",
+                    ":file_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "file_id",
+                      "description": "(Required) File Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c947805c-8255-41a1-af24-cddf1d13f4b0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "files",
+                    ":file_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "file_id",
+                      "description": "(Required) File Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e2b66a3d-36ec-4019-b9c9-3edbd434169d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "files",
+                    ":file_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "file_id",
+                      "description": "(Required) File Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f15b7c89-0dcf-4e2e-8fd6-300343b03ace",
+          "name": "List article versions",
+          "request": {
+            "name": "List article versions",
+            "description": {
+              "content": "List public article versions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "articles",
+                ":article_id",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "article_id",
+                  "description": "(Required) Article Unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3baa5bdd-4a4e-4e23-8fbc-8e81d317c25e",
+              "name": "OK. Article version representations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"url\": \"https://api.figshare.com/v2/articles/2000005/versions/1\",\n    \"version\": 1\n  },\n  {\n    \"url\": \"https://api.figshare.com/v2/articles/2000005/versions/1\",\n    \"version\": 1\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bcf746b-5543-4c55-934d-e35ba121b35f",
+              "name": "Bad Request. Article ID must be an integer and bigger than 0.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7cf6572c-26d6-4749-86b2-9bf3a9da1e82",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2db83651-05a5-49c2-ba00-0dc7b00d4814",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fbc3a285-031c-4ca3-b975-8aa43ebcc227",
+          "name": "Article details for version",
+          "request": {
+            "name": "Article details for version",
+            "description": {
+              "content": "Article with specified version",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "articles",
+                ":article_id",
+                "versions",
+                ":version_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "article_id",
+                  "description": "(Required) Article Unique identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "version_id",
+                  "description": "(Required) Article Version Number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30503895-607f-471e-accf-62c442928553",
+              "name": "OK. Article representation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "versions",
+                    ":version_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) Article Version Number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"authors\": [\n    {\n      \"first_name\": \"John\",\n      \"full_name\": \"John Doe\",\n      \"id\": 97657,\n      \"is_active\": false,\n      \"last_name\": \"Doe\",\n      \"orcid_id\": \"1234-5678-9123-1234\",\n      \"url_name\": \"John_Doe\"\n    },\n    {\n      \"first_name\": \"John\",\n      \"full_name\": \"John Doe\",\n      \"id\": 97657,\n      \"is_active\": false,\n      \"last_name\": \"Doe\",\n      \"orcid_id\": \"1234-5678-9123-1234\",\n      \"url_name\": \"John_Doe\"\n    }\n  ],\n  \"categories\": [\n    {\n      \"id\": 11,\n      \"parent_id\": 1,\n      \"path\": \"/450/1024/6532\",\n      \"source_id\": \"300204\",\n      \"taxonomy_id\": 4,\n      \"title\": \"Anatomy\"\n    },\n    {\n      \"id\": 11,\n      \"parent_id\": 1,\n      \"path\": \"/450/1024/6532\",\n      \"source_id\": \"300204\",\n      \"taxonomy_id\": 4,\n      \"title\": \"Anatomy\"\n    }\n  ],\n  \"citation\": \"lilliput, figshare admin (2017): first project item. figshare.\\n \\n Retrieved: 14 01, May 22, 2017 (GMT)\",\n  \"confidential_reason\": \"none\",\n  \"created_date\": \"2017-05-18T11:49:03Z\",\n  \"custom_fields\": [\n    {\n      \"field_type\": \"textarea\",\n      \"is_mandatory\": false,\n      \"name\": \"key\",\n      \"order\": 1,\n      \"settings\": {\n        \"validations\": {\n          \"min_length\": 1,\n          \"max_length\": 1000\n        },\n        \"placeholder\": \"Enter your custom field here\"\n      },\n      \"value\": {}\n    },\n    {\n      \"field_type\": \"textarea\",\n      \"is_mandatory\": false,\n      \"name\": \"key\",\n      \"order\": 1,\n      \"settings\": {\n        \"validations\": {\n          \"min_length\": 1,\n          \"max_length\": 1000\n        },\n        \"placeholder\": \"Enter your custom field here\"\n      },\n      \"value\": {}\n    }\n  ],\n  \"defined_type\": 3,\n  \"defined_type_name\": \"media\",\n  \"description\": \"article description\",\n  \"doi\": \"10.6084/m9.figshare.1434614\",\n  \"download_disabled\": false,\n  \"embargo_options\": [\n    {\n      \"id\": 364,\n      \"ip_name\": \"Figshare IP range\",\n      \"type\": \"ip_range\"\n    },\n    {\n      \"id\": 364,\n      \"ip_name\": \"Figshare IP range\",\n      \"type\": \"ip_range\"\n    }\n  ],\n  \"embargo_reason\": \"not complete\",\n  \"embargo_title\": \"File(s) under embargo\",\n  \"figshare_url\": \"http://figshare.com/articles/media/article_name/2000005\",\n  \"files\": [\n    {\n      \"computed_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n      \"download_url\": \"https://ndownloader.figshare.com/files/3000002\",\n      \"id\": 3000002,\n      \"is_link_only\": false,\n      \"name\": \"test.xls\",\n      \"size\": 14848,\n      \"supplied_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n      \"mimetype\": \"application/pdf\"\n    },\n    {\n      \"computed_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n      \"download_url\": \"https://ndownloader.figshare.com/files/3000002\",\n      \"id\": 3000002,\n      \"is_link_only\": false,\n      \"name\": \"test.xls\",\n      \"size\": 14848,\n      \"supplied_md5\": \"043a51806d646e88cafbf19e7b82846f\",\n      \"mimetype\": \"application/pdf\"\n    }\n  ],\n  \"folder_structure\": {\n    \"3000002\": \"Test Folder\"\n  },\n  \"funding\": \"none\",\n  \"funding_list\": [\n    {\n      \"funder_name\": \"string\",\n      \"grant_code\": \"string\",\n      \"id\": 1,\n      \"is_user_defined\": 2891,\n      \"title\": \"Scholarly funding\",\n      \"url\": \"https://app.dimensions.ai/details/grant/1\"\n    },\n    {\n      \"funder_name\": \"string\",\n      \"grant_code\": \"string\",\n      \"id\": 1,\n      \"is_user_defined\": 7378,\n      \"title\": \"Scholarly funding\",\n      \"url\": \"https://app.dimensions.ai/details/grant/1\"\n    }\n  ],\n  \"handle\": \"111184/figshare.1234\",\n  \"has_linked_file\": true,\n  \"id\": 1434614,\n  \"is_confidential\": true,\n  \"is_embargoed\": true,\n  \"is_metadata_record\": false,\n  \"is_public\": true,\n  \"keywords\": [\n    \"t1\",\n    \"t2\",\n    \"t3\"\n  ],\n  \"license\": {\n    \"name\": \"CC BY\",\n    \"url\": \"http://creativecommons.org/licenses/by/4.0/\",\n    \"value\": 1\n  },\n  \"metadata_reason\": \"hosted somewhere else\",\n  \"references\": [\n    \"http://figshare.com\",\n    \"http://figshare.com/api\"\n  ],\n  \"resource_doi\": \"\",\n  \"resource_title\": \"\",\n  \"size\": 69939,\n  \"status\": \"public\",\n  \"tags\": [\n    \"t1\",\n    \"t2\",\n    \"t3\"\n  ],\n  \"thumb\": \"https://ndownloader.figshare.com/files/123456789/preview/12345678/thumb.png\",\n  \"timeline\": {\n    \"firstOnline\": \"2015-12-31\",\n    \"publisherPublication\": \"2015-12-31\",\n    \"publisherAcceptance\": \"2015-12-31\"\n  },\n  \"title\": \"Test article title\",\n  \"url\": \"http://api.figshare.com/articles/1434614\",\n  \"url_private_api\": \"https://api.figshare.com/account/articles/1434614\",\n  \"url_private_html\": \"https://figshare.com/account/articles/1434614\",\n  \"url_public_api\": \"https://api.figshare.com/articles/1434614\",\n  \"url_public_html\": \"https://figshare.com/articles/media/Test_article_title/1434614\",\n  \"version\": 1,\n  \"related_materials\": [\n    {\n      \"id\": 10432,\n      \"identifier\": \"10.6084/m9.figshare.1407024\",\n      \"identifier_type\": \"DOI\",\n      \"relation\": \"IsSupplementTo\",\n      \"title\": \"Figshare for institutions brochure\",\n      \"is_linkout\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82f6b834-0507-4a9f-a79b-75975083cb08",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "versions",
+                    ":version_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) Article Version Number"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c4ac59e-b821-4c1f-bed8-d7fbfd69d7fa",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "versions",
+                    ":version_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) Article Version Number"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3dfaa6de-499e-4f4f-96af-ddb1c8fe4589",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":article_id",
+                    "versions",
+                    ":version_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "article_id",
+                      "description": "(Required) Article Unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) Article Version Number"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.figshare.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9c0cc12f-f8c9-4db2-8b12-0e5e77f38ee3",
+    "name": "DTU Data (Figshare API v2) articles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public read subset of the Figshare REST API v2 as consumed by DTU Data, DTU's institutional research data repository. DTU records are scoped via institution id 379. Public read access to published articles, files, and versions requires no authentication. Derived from the official Figshare OpenAPI 3.0.3 specification (https://docs.figshare.com/swagger.json).\n\nContact Support:\n Name: Figshare Support",
+      "type": "text/plain"
+    }
+  }
+}

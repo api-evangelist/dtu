@@ -66,6 +66,8 @@ apis:
   humanURL: https://data.dtu.dk/
   baseURL: https://api.figshare.com/v2
   tags:
+  - Articles
+  tags_raw:
   - articles
   properties:
   - type: OpenAPI

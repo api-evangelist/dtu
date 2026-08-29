@@ -1,0 +1,25 @@
+slug: dtu
+provider: Technical University of Denmark
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: articles
+  spec_file: dtu-articles-api-openapi.yml
+  capability_id: BC-4780.40
+  capability_id_l1: BC-4780
+  capability_name: Scholarly Output & Publication Management
+  confidence: 0.78
+  evidence: GET /articles  articles_list  Public Articles; "DTU Data, DTU's institutional research data
+    repository"
+  reason: Public read access to published research articles, files and versions in an institutional research
+    repository is tracking and stewardship of scholarly output.

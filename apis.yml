@@ -156,6 +156,11 @@ apis:
   - Research Data
   - Repository
   - Figshare
+  - Tenants
+  tags_raw:
+  - Research Data
+  - Repository
+  - Figshare
   - Tenant
   properties:
   - type: Portal
@@ -177,6 +182,12 @@ apis:
   - Publications
   - Pure
   - Repository
+  - Tenants
+  tags_raw:
+  - Research
+  - Publications
+  - Pure
+  - Repository
   - Tenant
   properties:
   - type: Portal
@@ -192,6 +203,10 @@ apis:
     publishes no LTI platform configuration of its own, so no LTI conformance is claimed for DTU.
   humanURL: https://learn.dtu.dk/
   tags:
+  - Learning Management
+  - Brightspace
+  - Tenants
+  tags_raw:
   - Learning Management
   - Brightspace
   - Tenant

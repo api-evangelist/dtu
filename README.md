@@ -64,7 +64,7 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The Technical University of Denmark (DTU) is a leading engineering and science university in Kongens Lyngby, Denmark, ranked #109 in the QS World University Rankings 2025. Its public developer/API footprint is research- and metadata-oriented: the DTU Data repository exposes the open Figshare REST API, and DTU Orbit runs on Elsevier Pure. DTU also maintains a public GitHub organization for affiliated open-source software. There is no consolidated institution-wide public developer portal.
+The Technical University of Denmark (DTU) is a technical university in Kongens Lyngby, Denmark. DTU operates no central developer portal and publishes no OpenAPI-described public REST API of its own — `api.dtu.dk` and `developer.dtu.dk` do not resolve. Its two clearly institution-operated machine-readable surfaces are its identity federation (a DTU-run SAML 2.0 / WS-Federation / OpenID Connect token service at `sts.ait.dtu.dk`, registered in the Danish national federation WAYF and in eduGAIN) and the Global Wind Atlas OGC Web Processing Service, whose GetCapabilities document names DTU Wind Energy as the service provider with a `dtu.dk` contact. DTU Data (`data.dtu.dk`) is a Figshare tenant and DTU Orbit (`orbit.dtu.dk`) is an Elsevier Pure deployment: both are recorded here as tenant relationships, not as DTU contracts.
 
 APIs.json: https://raw.githubusercontent.com/api-evangelist/dtu/refs/heads/main/apis.yml
 
@@ -79,15 +79,54 @@ Run it with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&
 - Education
 - Higher Education
 - University
-- Research Data
-- Open Data
+- Technical University
 - Denmark
 - Europe
+- Identity Federation
+- Research Data
+- Library
+- Course Catalog
+- Wind Energy
 
 ## APIs
 
-- **DTU Data (Figshare API)** — DTU's institutional research data repository on Figshare; public datasets and metadata via the Figshare REST API v2 scoped to DTU institution id 379. Docs: https://docs.figshare.com/ — Portal: https://data.dtu.dk/
-- **DTU Orbit Research Database (Pure)** — DTU's Elsevier Pure research information database (publications, projects, profiles). Public web portal is browsable; Pure OAI/web-service endpoints are gated/erroring on the public host. Docs: https://www.bibliotek.dtu.dk/en/about-and-contact/open-science/open-science-dtu-orbit — Portal: https://orbit.dtu.dk/
+Every entry carries an `x-operator` recording **who runs the thing** — for a university that is
+almost never the same answer as who the surface is named after.
+
+**Institution-operated**
+
+- **DTU Identity Federation (SAML 2.0 / WS-Federation / OpenID Connect)** — DTU's own security token
+  service at `sts.ait.dtu.dk`. Signed SAML metadata and an OIDC discovery document are served openly and
+  unauthenticated. IdP entityID `http://sts.ait.dtu.dk/adfs/services/trust`, registered in WAYF and eduGAIN
+  with `schacHomeOrganization: dtu.dk`.
+  Metadata: https://sts.ait.dtu.dk/FederationMetadata/2007-06/FederationMetadata.xml —
+  Discovery: https://sts.ait.dtu.dk/adfs/.well-known/openid-configuration
+- **Global Wind Atlas Web Processing Service** — OGC WPS 1.0.0, eight processes, fees "None".
+  `ows:ProviderName` is DTU Wind Energy, contact `neda@dtu.dk`, Risø Campus, Roskilde.
+  Capabilities: https://wps.globalwindatlas.info/?service=WPS&request=GetCapabilities —
+  Docs: https://wasp.dtu.dk/wind-atlases/global-wind-atlas
+- **DTU Findit** — DTU Library discovery on DTU's own host (open-source Blacklight). Publishes an
+  OpenSearch 1.1 description; catalog responses sit behind a verification interstitial for non-browser
+  clients. Descriptor: https://findit.dtu.dk/en/catalog/opensearch.xml
+- **DTU course base** — `kurser.dtu.dk`. DTU-operated, but every path returns a 371-byte forced-sign-in
+  shell. Real surface, authentication gated, no public data. Portal: https://kurser.dtu.dk/
+
+**Tenant — DTU's data, a vendor's contract**
+
+- **DTU Data (Figshare tenant)** — DTU's institutional research data repository, Figshare institution id
+  379. The API serving it is `api.figshare.com/v2`, a generic host every Figshare customer shares, so no
+  OpenAPI is stored here for it. Portal: https://data.dtu.dk/ — Docs: https://docs.figshare.com/
+- **DTU Orbit (Elsevier Pure tenant)** — research information database on DTU's own host, deployed on
+  Elsevier Pure. Portal behind a Cloudflare bot challenge; Pure's OAI-PMH and web-service paths error.
+  Portal: https://orbit.dtu.dk/
+- **DTU Learn (D2L Brightspace tenant)** — the LMS. Brightspace's LTI certification is D2L's, not DTU's,
+  and DTU publishes no LTI platform configuration of its own. Portal: https://learn.dtu.dk/
+
+## Identity, Authentication and Conformance
+
+- [authentication/dtu-authentication.yml](authentication/dtu-authentication.yml)
+- [conformance/dtu-conformance.yml](conformance/dtu-conformance.yml) — one evidenced `education`-regime
+  domain-standard hit: **saml**. The other eleven are recorded as probed misses with status codes.
 
 ## Plans
 
@@ -104,21 +143,39 @@ Run it with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&
 ## Timestamps
 
 - Created: 2026-06-03
-- Modified: 2026-06-03
+- Modified: 2026-08-30
 
 ## Common Properties
 
 - Website: https://www.dtu.dk/english
-- GitHub: https://github.com/dtudk
+- IdentityFederation: https://sts.ait.dtu.dk/FederationMetadata/2007-06/FederationMetadata.xml
+- ResearchRepository: https://data.dtu.dk/
+- LibraryCatalog: https://findit.dtu.dk/
+- CourseCatalog: https://kurser.dtu.dk/
+- ResearchComputing: https://www.hpc.dtu.dk/
+- AIPolicy: https://www.ai.dtu.dk/rules/
+- AITooling: https://www.ai.dtu.dk/
+- GitHubOrganization: https://github.com/dtudk
+- GitHub: https://github.com/DTUWindEnergy
 - LinkedIn: https://www.linkedin.com/school/technical-university-of-denmark/
-- Authentication: https://auth.dtu.dk/
+- PrivacyPolicy: https://www.dtu.dk/english/about/strategy-policy/policies/privacy-policy
+- Blog: https://www.dtu.dk/english/news/all-news
 
 ## Notes
 
-- All cataloged URLs were probed on 2026-06-03. The Figshare-backed DTU Data API returned live JSON (HTTP 200).
-- DTU Orbit's public Pure OAI/web-service endpoint redirected to an error page (HTTP 500) and is not openly documented or self-service; it is cataloged as a portal, not a usable API.
-- No dedicated `developer.dtu.dk` portal exists. Identity/SSO is handled via DTU's federated authentication (Shibboleth/OCES).
-- No endpoints were fabricated; gated and erroring interfaces are documented honestly.
+- Re-profiled 2026-08-30 under the API Evangelist university pipeline, which settles **who operates a
+  surface** before any contract is saved.
+- **Five Figshare OpenAPI contracts and the 17 artifacts derived from them were removed from this repo.**
+  `api.figshare.com` is a generic vendor host claimed by four other institutions in this cohort; the
+  contract is Figshare's engineering and belongs in Figshare's own repo, not DTU's. The tenant
+  *relationship* is kept, because it is a real institutional fact.
+- Two genuinely institution-operated machine-readable surfaces the June 2026 profile missed were found
+  and verified: DTU's own SAML/OIDC token service, and the Global Wind Atlas OGC WPS.
+- No OAI-PMH endpoint on a DTU-operated host responded (`orbit.dtu.dk/ws/oai?verb=Identify` → 500,
+  `findit.dtu.dk/oai` → 404). No open data portal exists.
+- DTU's IdP is Microsoft AD FS, not Shibboleth — the earlier profile's "Shibboleth/OCES" note was wrong.
+- No endpoints were fabricated. Gated, challenged and erroring interfaces are documented with their
+  status codes. A 403 bot challenge grades **live**, not dead.
 
 ## Maintainers
 

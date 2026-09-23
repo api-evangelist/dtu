@@ -1,3 +1,5 @@
+x-method: generated
+x-source-url: apis.yml
 specification: FinOps Framework
 specificationVersion: '1.0'
 schema: https://www.finops.org/framework/

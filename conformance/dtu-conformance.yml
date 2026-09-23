@@ -1,0 +1,119 @@
+---
+# DTU — education-regime domain standard conformance
+# Reward-only. A standard is listed as a HIT only where a live, machine-readable
+# artifact on a DTU-operated host demonstrates it. Everything else is recorded as
+# a probed MISS with the status code that proves it.
+generated: '2026-08-30'
+method: probed
+source: live HTTP probes, 2026-08-30 — see evidence[] on each entry
+provider: Technical University of Denmark
+providerId: dtu
+regime: education
+
+standards:
+- standard: saml
+  name: SAML 2.0 metadata (institutional identity federation)
+  conformant: true
+  x-operator: institution
+  evidence:
+  - url: https://sts.ait.dtu.dk/FederationMetadata/2007-06/FederationMetadata.xml
+    status: 200
+    content_type: application/samlmetadata+xml
+    location: >-
+      EntityDescriptor entityID="http://sts.ait.dtu.dk/adfs/services/trust";
+      IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol";
+      SingleSignOnService Location="https://sts.ait.dtu.dk/adfs/ls/" (HTTP-Redirect and HTTP-POST bindings);
+      document is XML-signed with rsa-sha256.
+  - url: https://metadata.wayf.dk/idps.js
+    status: 200
+    location: >-
+      Entry "http://sts.ait.dtu.dk/adfs/services/trust" — "Technical University of Denmark (DTU)",
+      schacHomeOrganization "dtu.dk", scope ["dtu.dk","guest.dtu.dk"] in the WAYF national federation IdP feed.
+  - url: https://phph.wayf.dk/md/idpsedugain.json
+    status: 200
+    location: same entityID present in the eduGAIN-inclusive feed.
+  notes: >-
+    DTU operates the SAML IdP itself, on its own host, and is registered in both the Danish
+    national federation (WAYF) and eduGAIN. This is DTU's own engineering, not a vendor's.
+
+- standard: shibboleth
+  conformant: false
+  reason: >-
+    DTU's SAML IdP is Microsoft AD FS, not Shibboleth. Federation participation is real
+    (WAYF/eduGAIN) but no Shibboleth software or shibmd extension is served by DTU.
+  evidence:
+  - url: https://sts.ait.dtu.dk/FederationMetadata/2007-06/FederationMetadata.xml
+    status: 200
+  - url: https://auth.dtu.dk/idp/shibboleth
+    status: 404
+
+- standard: oai-pmh
+  conformant: false
+  reason: >-
+    No OAI-PMH endpoint on a DTU-operated host responded. DTU Orbit runs Elsevier Pure, whose
+    web-service and OAI paths return an error page. DTU Data's OAI path is on a Figshare tenant
+    host and is behind an AWS WAF challenge; it would be the vendor's contract in any case.
+  evidence:
+  - url: https://orbit.dtu.dk/ws/oai?verb=Identify
+    status: 500
+  - url: https://orbit.dtu.dk/oai?verb=Identify
+    status: 500
+  - url: https://orbit.dtu.dk/ws/oai
+    status: 404
+  - url: https://findit.dtu.dk/oai?verb=Identify
+    status: 404
+  - url: https://data.dtu.dk/oai?verb=Identify
+    status: 202
+    note: AWS WAF interstitial (awsWafCookieDomainList ['figshare.com']), zero-byte then challenge body.
+
+- standard: scim
+  conformant: false
+  reason: No SCIM service provider configuration found on a DTU-operated host.
+- standard: lti
+  conformant: false
+  reason: >-
+    DTU Learn runs D2L Brightspace at learn.dtu.dk. Brightspace is LTI-certified as a product,
+    but the certification is D2L's, not DTU's, and DTU publishes no LTI platform configuration
+    of its own. Recording it as a DTU conformance would be the vendor misattribution this
+    pipeline exists to prevent.
+  evidence:
+  - url: https://learn.dtu.dk/
+    status: 200
+- standard: oneroster
+  conformant: false
+  reason: No OneRoster endpoint published.
+- standard: ed-fi
+  conformant: false
+  reason: Ed-Fi is a US K-12/state-agency data standard; not applicable and not published.
+- standard: caliper
+  conformant: false
+  reason: No Caliper Analytics event store or endpoint published.
+- standard: qti
+  conformant: false
+  reason: No QTI assessment interchange surface published.
+- standard: orcid
+  conformant: false
+  reason: >-
+    DTU Orbit displays ORCID iDs on researcher profiles, but the portal is behind a Cloudflare
+    bot challenge and no machine-readable ORCID-conformant contract is served by DTU. Not
+    claimed without an artifact.
+  evidence:
+  - url: https://orbit.dtu.dk/en/
+    status: 403
+    note: Cloudflare "Just a moment..." interstitial.
+- standard: datacite
+  conformant: false
+  reason: >-
+    DTU Data mints DataCite DOIs, but the minting and the metadata API are Figshare's
+    (api.figshare.com) — a vendor contract shared by every Figshare customer.
+- standard: crossref
+  conformant: false
+  reason: No DTU-operated Crossref deposit or query surface.
+
+summary:
+  hits: 1
+  probed: 12
+  notes: >-
+    One evidenced hit (saml). The education regime's other eleven standards are either not
+    published by DTU or are published only by a vendor operating under DTU's name, in which
+    case the conformance belongs to the vendor.

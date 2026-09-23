@@ -1,10 +1,12 @@
+x-method: generated
+x-source-url: apis.yml + live probes of DTU hosts
 specification: API Commons Rate Limits
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
 provider: Technical University of Denmark
 providerId: dtu
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reconciled: false
 tags:
 - Education
@@ -12,11 +14,16 @@ tags:
 - University
 - Rate Limiting
 description: >-
-  Technical University of Denmark does not publish a unified public rate-limit table across its APIs. Open
-  metadata and harvesting endpoints (OAI-PMH, IIIF, library) may throttle large-scale
-  or automated harvesting; clients should harvest politely, honor Retry-After, and
-  contact the relevant service for bulk access.
-notes: Confirm per-service limits with each API's documentation; harvest responsibly.
+  Technical University of Denmark publishes no rate-limit table for any of its surfaces. DTU
+  operates no public REST API, so there is no published quota to record. Its open
+  machine-readable surfaces are static or near-static documents — SAML federation metadata,
+  an OpenID Connect discovery document, an OpenSearch descriptor — and the Global Wind Atlas
+  OGC WPS, which declares fees "None" and access constraints "none" but publishes no limit.
+  Probed 2026-08-30: no OAI-PMH endpoint on a DTU-operated host responded, so no harvesting
+  limits apply.
+notes: >-
+  No published global or per-service limit. Clients should call politely and honor Retry-After.
+  Rate limits on data.dtu.dk are Figshare's, not DTU's, and are not recorded here.
 sources:
 - https://raw.githubusercontent.com/api-evangelist/dtu/refs/heads/main/apis.yml
 responseCodes:

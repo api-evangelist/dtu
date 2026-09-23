@@ -3,8 +3,65 @@ name: Technical University of Denmark
 description: Technical University of Denmark public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/dtu/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reviews:
+  - date: '2026-08-30'
+    rating: 2
+    summary: >-
+      Re-profiled under the university pipeline, which settles WHO OPERATES a surface before
+      any contract is saved. The five Figshare OpenAPI contracts previously held here were
+      removed along with the 17 artifacts derived from them: api.figshare.com is a generic
+      vendor host claimed by four other institutions in this cohort, so the contract is
+      Figshare's engineering and belongs in Figshare's own repo, not DTU's. DTU Data and DTU
+      Orbit are retained as tenant relationships — DTU's data on a vendor's platform — because
+      the relationship is a real institutional fact even when the contract is not DTU's. Two
+      genuinely institution-operated machine-readable surfaces were found that the June 2026
+      profile missed entirely: DTU's own SAML 2.0 / WS-Federation / OpenID Connect token
+      service at sts.ait.dtu.dk, registered in WAYF and eduGAIN, and the Global Wind Atlas OGC
+      WPS whose GetCapabilities names DTU Wind Energy with a dtu.dk contact. DTU still
+      publishes no OpenAPI-described public REST API and no developer portal; api.dtu.dk and
+      developer.dtu.dk do not resolve. Expect this correction to LOWER the score, because the
+      earlier score was Figshare's.
+    endpoints:
+      - url: https://sts.ait.dtu.dk/FederationMetadata/2007-06/FederationMetadata.xml
+        status: 200
+        note: Signed SAML 2.0 metadata for DTU's own IdP (application/samlmetadata+xml, 71,790 bytes).
+      - url: https://sts.ait.dtu.dk/adfs/.well-known/openid-configuration
+        status: 200
+        note: OpenID Connect discovery document, issuer https://sts.ait.dtu.dk/adfs.
+      - url: https://metadata.wayf.dk/idps.js
+        status: 200
+        note: WAYF national federation IdP feed listing entityID http://sts.ait.dtu.dk/adfs/services/trust as DTU.
+      - url: https://wps.globalwindatlas.info/?service=WPS&request=GetCapabilities
+        status: 200
+        note: OGC WPS 1.0.0, ows:ProviderName "DTU Wind Energy", contact neda@dtu.dk, 8 processes offered.
+      - url: https://findit.dtu.dk/en/catalog/opensearch.xml
+        status: 200
+        note: OpenSearch 1.1 description for DTU Findit on DTU's own host.
+      - url: https://orbit.dtu.dk/en/
+        status: 403
+        note: Cloudflare bot challenge on the Pure portal. Live, not dead.
+      - url: https://orbit.dtu.dk/ws/oai?verb=Identify
+        status: 500
+        note: Pure OAI-PMH still errors; no harvesting interface on a DTU host.
+      - url: https://data.dtu.dk/oai?verb=Identify
+        status: 202
+        note: AWS WAF interstitial on the Figshare tenant host. Vendor contract regardless.
+      - url: https://kurser.dtu.dk/
+        status: 200
+        note: DTU course base returns a 371-byte forced-sign-in shell. Institution-operated, auth gated.
+      - url: https://learn.dtu.dk/
+        status: 200
+        note: DTU Learn — D2L Brightspace tenant.
+      - url: https://www.ai.dtu.dk/rules/
+        status: 200
+        note: DTU AI Info Hub rules page; institutional generative-AI policy.
+      - url: https://api.dtu.dk/
+        status: 0
+        note: Does not resolve. No central API host.
+      - url: https://developer.dtu.dk/
+        status: 0
+        note: Does not resolve. No developer portal.
   - date: '2026-06-03'
     rating: 2
     summary: >-

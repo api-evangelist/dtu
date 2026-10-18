@@ -203,7 +203,7 @@ apis:
     publishes no LTI platform configuration of its own, so no LTI conformance is claimed for DTU.
   humanURL: https://learn.dtu.dk/
   tags:
-  - Learning Management
+  - LMS
   - Brightspace
   - Tenants
   tags_raw:
